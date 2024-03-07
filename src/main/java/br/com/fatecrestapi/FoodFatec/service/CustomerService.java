@@ -33,13 +33,20 @@ public class CustomerService {
                             "obrigatória e deve ser maior ou igual a 0 (zero)!");
         }
     }
-    public HashMap<String,Object> deleteCustomer(Long idCustomer){
+
+    public HashMap<String, Object> deleteCustomer(Long idCustomer) {
         Optional<Customer> customer = Optional.ofNullable(customerRepository.findById(idCustomer).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado!")));
 
         customerRepository.delete(customer.get());
         HashMap<String, Object> result = new HashMap<>();
-        result.put("result", "Cliente : "  + customer.get().getFirstNameCustomer()+ " " + customer.get().getLastNameCustomer() + " excluído com sucesso");
+        result.put("result", "Cliente : " + customer.get().getFirstNameCustomer() + " " + customer.get().getLastNameCustomer() + " excluído com sucesso");
         return result;
 
+    }
+
+    public Optional<Customer> findCustomerById(Long idCustomer) {
+        return Optional.ofNullable(customerRepository.findById(idCustomer)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "CLIENTE NÃO ENCONTRADO!")));
     }
 }
