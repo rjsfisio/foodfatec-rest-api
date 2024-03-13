@@ -66,6 +66,16 @@ public class CustomerService {
                             "A renda salarial deve ser maior ou igual a 0!");
         }
     }
+    public Boolean validateCustomer(Customer customer) {
+        if (customer.getMonthlyIncomeCustomer() != null &&
+                customer.getMonthlyIncomeCustomer().compareTo(BigDecimal.valueOf(0)) >= 0 &&
+                !customer.getPasswordCustomer().equals("") && customer.getPasswordCustomer() != null){
+            return true;
+
+        }else{
+            return false;
+        }
+    }
 }
 
 
