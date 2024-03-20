@@ -1,13 +1,10 @@
 package br.com.fatecrestapi.FoodFatec.controller;
 
 import br.com.fatecrestapi.FoodFatec.entity.Customer;
-import br.com.fatecrestapi.FoodFatec.repository.CustomerRepository;
 import br.com.fatecrestapi.FoodFatec.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
